@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- viewport（视口）支持响应式布局的 标签。 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>跑路通知！</title>
+  <link rel="shortcut icon" href="static/picture/logo.png" title="Favicon">
+  <!-- 矢量图 -->
+  <link rel="stylesheet" href="static/css/iconfont.css">
+  <!-- 新 Bootstrap4 核心 CSS 文件 -->
+  <link rel="stylesheet" href="static/css/bootstrap.min.css">
+
+  <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+  <script src="static/js/jquery.min.js"></script>
+
+  <!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+  <script src="static/js/popper.min.js"></script>
+
+  <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+  <script src="static/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f6f7ff;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .box {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      margin: 60px auto;
+      height: 800px;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0px 12px 15px 2px rgb(224 225 255 / 41%)
+    }
+
+    .cont {
+      display: flex;
+      flex: 1;
+    }
+
+    .img {
+      background-image: url('https://www.netjue.com/wp-content/uploads/2023/10/bg2.gif');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .icp {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #aeb7cd;
+    }
+
+    a {
+      color: #aeb7cd;
+      outline: none;
+      text-decoration: none;
+    }
+
+    /*去除a标签下划线*/
+    a {
+      text-decoration: none;
+    }
+
+    /*去除未被访问的a标签的下划线*/
+    a:link {
+      color: #aeb7cd;
+
+      text-decoration: none;
+    }
+
+    /*去除已经被访问过的a标签的下划线*/
+    a:visited {
+      color: #aeb7cd;
+
+      text-decoration: none;
+    }
+
+    /*去除鼠标悬停时的a标签的下划线*/
+    a:hover {
+      color: #aeb7cd;
+      text-decoration: none;
+    }
+
+    /*去除正在点击的a标签的下划线（鼠标按下，尚未松开）*/
+    a:active {
+      color: #aeb7cd;
+      text-decoration: none;
+    }
+
+    /*去除获得焦点的a标签的下划线（被鼠标点击过）*/
+    a:focus {
+      text-decoration: none;
+    }
+
+    .txt {
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      /* padding-top: 111px; */
+      justify-content: center;
+    }
+
+    .logo {
+      margin-bottom: 1.875rem;
+    }
+
+    .t42 {
+      font-size: 2.625rem;
+      font-weight: 600;
+      margin-bottom: 1.875rem;
+    }
+
+    .t24 {
+      font-size: 1rem;
+      color: #5f6383;
+      margin-bottom: 1.875rem;
+    }
+
+    .bts {
+      display: flex;
+      font-size: .9375rem;
+    }
+
+    .btn {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      background: #2e2e2e;
+      padding: .5rem .875rem;
+      border-radius: 15px;
+    }
+
+    .btn:hover {
+      color: #fff;
+    }
+
+
+    .iconfont {
+      font-family: "iconfont" !important;
+      font-size: 20px;
+      color: #fff;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke-width: 0.2px;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 0 8px;
+    }
+
+    .container {
+      padding: 0;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:active,
+    .btn-primary:active:focus:not(:disabled):not(.disabled),
+    .btn:focus,
+    .btn:active,
+    .btn:hover {
+      box-shadow: none !important;
+      outline: 0;
+    }
+
+    @media only screen and (max-width: 540px) {
+      .img {
+        display: none;
+      }
+
+      .bg {
+        background-image: url('static/image/bg.gif');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        filter: blur(2px);
+      }
+
+
+
+      .box {
+        width: 95%;
+        height: auto;
+        background: rgb(243 245 255 / 78%);
+        backdrop-filter: blur(1px);
+      }
+
+      .txt {
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        padding-top: 60px;
+      }
+    }
+
+    @media only screen and (max-width: 812px) {
+      .img {
+        display: none;
+      }
+
+      .bg {
+        background-image: url('static/image/bg.gif');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        filter: blur(2px);
+      }
+
+      .txt {
+        padding-top: 10px;
+      }
+
+      .logo {
+        margin-bottom: 10px;
+      }
+
+      .t42 {
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .t24 {
+        font-size: 1rem;
+        color: #5f6383;
+        margin-bottom: 10px;
+      }
+    }
+
+    @media only screen and (max-width: 960px) {
+
+      .img {
+        display: none;
+      }
+
+      .box {
+        height: auto;
+      }
+
+      .bg {
+        background-image: url('https://www.netjue.com/wp-content/uploads/2023/10/bg.gif');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        filter: blur(2px);
+      }
+
+      .txt {
+        padding-top: 20px;
+      }
+
+      .logo {
+        margin-bottom: 10px;
+      }
+
+      .t42 {
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .t24 {
+        font-size: 1rem;
+        color: #5f6383;
+        margin-bottom: 10px;
+      }
+    }
+
+    @media only screen and (max-width: 1024px) {
+      .box {
+        height: auto;
+      }
+
+      .img {
+        background-image: url('static/image/bg2.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+
+    }
+
+    @media only screen and (max-width: 1366px) {
+      .box {
+        height: auto;
+      }
+
+      .img {
+        background-image: url('static/image/bg2.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+
+    }
+
+    @media only screen and (max-width: 1400px) {
+      .box {
+        height: auto;
+      }
+
+      .img {
+        background-image: url('static/image/bg2.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container box">
+    <div class="img cont"></div>
+    <div class="txt cont">
+      <div class="t42">跑路通知</div>
+      <div class="t24">是的，正如你所见——我们跑路了</div>
+	  <div class="t24">幸运的是，我们还会换个站点继续骗你！</div>
+	   <div class="t24">重要的是，你拿我们没办法~！</div>
+	   <div class="t24">对不起，我们欺骗了你，请不要担心，钱没了可以再赚</div>
+	  <div class="t24">反正被骗的是你这个呆逼又不是我😁🤣，嘻嘻哈哈，我他妈直接乐开了花</div>
+	  <div class="t24"></div>
+	  
+	<p>
+				 商务合作：
+			            <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=4056860&amp;site=qq&amp;menu=yes&amp;jumpflag=1" target="_blank" rel="nofollow">QQ</a>
+			            <span>|</span>
+			            <a href="https://www.netjue.com/a/lxfs/static/picture/wxqy.png" target="_blank" rel="nofollow">微信</a>
+			            <span>|</span>
+			            <a href="https://t.me/wzrjkyy" target="_blank" rel="nofollow">Telegram</a>
+			            
+			            
+			            </p>
+      <div class="bts row">
+<!--        <a class="btn col-sm-3" href="https://sj.qq.com/appdetail/cc.yijiao.app" target="_blank"><span
+            class="iconfont icon-anzhuo"></span> Android</a>
+        <a class="btn col-sm-3" href="https://apps.apple.com/cn/app/yijiao/id1621110113" target="_blank"><span
+            class="iconfont icon-ios"></span>iOS</a>
+        <a class="btn col-sm-3" href="https://mp.weixin.qq.com/s/-AvSE2vTlBot2lwmA_uexQ" target="_blank"><span
+            class="iconfont icon-weixin"></span>About</a>
+            -->
+      </div>
+    </div>
+  </div>
+  <div class="icp">
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备2022000360号-2</a>
+  </div>
+  
+  <div style="color: #aeb7cd;">Copyright © 2023 Netjue All rights reserved.</div>
+  <div class="bg"></div>
+  <br>
+	<div style="display:none;"><a href="https://wwww.netjue.com/">网爵科技</a></div>
+</body>
+
+<script>
+</script>
+
+</html>
