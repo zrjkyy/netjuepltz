@@ -26,3 +26,4 @@ Paolu Notification is a simple single-page application designed to provide notif
 
 This project is open-sourced under the MIT license. For more details, please refer to the LICENSE file.
 
+<img src="https://tc.7zz.cn/i/2024/06/01/665ad490dde9d.webp" alt="9ceaf31c80e727cea56d7e2cd85c5e88.png" title="9ceaf31c80e727cea56d7e2cd85c5e88.png" />
